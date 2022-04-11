@@ -1,9 +1,5 @@
 *** Settings ***
-Library  SeleniumLibrary
-
-*** Variables ***
-${search_parameter}  flipkart
-${url}  https://www.google.com/
+Resource  ../../../Resources/MyKeywords.robot
 
 *** Test Cases ***
 Google test case
@@ -42,21 +38,6 @@ Flipkart user login
     [Tags]  flipkart
     input text  class:_2IX_2-  tapan@gmail.com
     click button  xpath=/html/body/div[1]/div/div[2]/div/div[1]/div[1]/div/div/div/div/div[1]/div/form/div[3]/button
-    sleep  5s
     stop test case
 
 
-*** Keywords ***
-search data
-    Input text  name:q  ${search_parameter}
-
-start test case
-    Open Browser  ${url}  chrome
-    Maximize Browser Window
-
-stop test case
-    close browser
-
-flipkart search
-    Input text  name:q  iphone13
-    click button  class:L0Z3Pu
